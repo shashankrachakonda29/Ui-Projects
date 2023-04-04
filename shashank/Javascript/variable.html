@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery</title>
+        <style>
+            .selected{
+                color: aqua;
+            }
+            .highlight{
+                background: blueviolet;
+            }
+            .c1{
+                color: seagreen;
+            }
+            .h1{
+                background: rgb(19, 91, 139);
+            }
+            div{
+                background: white;
+            }
+            .red{
+                background:red;
+            }
+            .red.green{
+                background: green;
+            }
+            .intro{
+                color: darkorange;
+            }
+        </style>
+    </head>
+    <body class="container-fluid">
+        <div><span id="c1">jQuery is a fast</span>small,and feature-rich JavaScript library.<span class="red">This span will be green because it now has the "green" and "red" classes.
+            It would be red if the addClass function failed.</span>It makes things like HTML document traversal and manipulation, event handling, animation, and <span id="h1">Ajax much simpler with an easy-to-use API that works across a multitude of browsers . With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.</span> </div>
+        <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+        <input class="append" type="button" value="button"><br>
+        <div>
+            <h2>Attr</h2>
+            <label for="attr">Atrr</label>
+            <input type="text" id="atrr">
+            <input class="atrr" type="button" value="button"><br>
+        </div>
+        <div>
+            <h2>String Formats</h2>
+            <input type="button" value="string" id="string">
+        </div>
+        <div>
+            <h2>has Class</h2>
+            <p class="red">has class</p>
+            <p >has class</p>
+            <button id="has">Does any paragraph have an red class</button>
+        </div>
+        <div>
+            <h2>html</h2>
+            <p class="para">para 1</p>
+            <p class="para">para 2</p>
+            <button id="html">Change content of all p elements</button>
+        </div>
+        <div>
+            <h2>prop</h2>
+            <div id="prop1"></div>
+            <button id="prop">Add and remove a property</button>
+        </div>
+        <div>
+            <h2>removeAtrr</h2>
+            <p style="color: aqua;" >Color 1</p><br>
+            <p style="color: chartreuse;">Color 2</p>
+            <button id="remove">Remove the style attribute </button>
+        </div>
+        <div>
+            <h2>removeClass</h2>
+            <p class="selected">para 1</p>
+            <p class="selected">para 2</p>
+            <button id="removec">Remove the class attribute</button>
+        </div>
+        <div>
+            <h2>toggleClass</h2>
+            <p class="c3">para 1</p>
+            <p class="c3">para 2</p>
+            <button id="toggle">It add the class</button>
+        </div>
+
+        <script>
+            $("#c1").last().addClass("selected highlight")
+            $("#h1").last().addClass(["c1", "h1"])
+
+
+            $("span").addClass(function(index,currentClass){
+                var addClass;
+                if(currentClass==="red"){
+                    addClass="green";
+                    $("#p1").text("There is one green div")
+                }
+                return addClass;
+            });
+            $(".red").hasClass("foo")
+
+
+            // String formats
+            $("#string").click(()=>{
+                    var str="finbot"
+                document.write(str.charAt(0),"<br>");
+                document.write(str.toUpperCase(),"<br>")
+                document.write(str.toLowerCase(),"<br>")
+                document.write(str.replace(/i|o|b/g,"e"),"<br>")
+                document.write(str.split(""),"<br>")
+                document.write(str.length,"<br>")
+            });
+
+            $(".append").click(()=>{
+                $("<b>appending the data to body</b>").appendTo("body")
+            })
+
+            $(".atrr").click(()=>{
+                $("#atrr").attr("placeholder","Atrr is placeed");
+            })
+
+            $("#has").click(()=>{
+                alert($("p").hasClass("red"));
+            })
+
+            $("#html").click(()=>{
+                $(".para").html("hello <b>Jquery</b>")
+            })
+
+            $("#prop").click(()=>{
+                var $content=$("#prop1")
+                $content.prop("color", "Blue");
+                $content.append("The color property has the following value: " + $content.prop("color"));
+                $content.removeProp("color");
+                $content.append("<br>Now the color property has the following value: " + $content.prop("color"));
+            });
+
+            $("#remove").click(()=>{
+                $("p").removeAttr("style")
+            })
+
+            $("#removec").click(()=>{
+                $(".selected").removeClass("selected")
+            })
+            $("#toggle").click(()=>{
+                $(".c3").toggleClass("intro")
+            })
+        </script>
+        
+    </body>
+</html>
