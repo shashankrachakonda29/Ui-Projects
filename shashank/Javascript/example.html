@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            html {
+            font-family: 'Lato';
+            margin: 20px auto;
+            max-width: 600px;
+            font-size: 1.25em;
+            }
+
+            ul {
+            list-style: none;
+            padding: 0;
+            }
+
+            li {
+            padding: 5px 10px;
+            margin: 5px 0;
+            color: white;
+            border-radius: 5px;
+            }
+
+            .hint {
+            margin-right: 30px;
+            display: inline-block;
+            }
+
+            span.french, span.veg, span.german {
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            display: inline-block;
+            /* float: left; */
+            margin-top: 5px;
+            margin-right: 5px;
+            }
+
+            span.french {
+                background: green;
+            }
+
+            span.veg {
+                background: aqua;
+            }
+
+            span.german {
+                background: darkorange;
+            }
+
+            li[data-type='veg'] {
+            background: aqua;
+            }
+
+            li[data-type='french'] {
+            background: green;
+            }
+
+            li[data-type='german'] {
+            background: darkorange;
+            }  
+        </style>
+        <script src="https://code.jquery.com/jquery-3.6.3.js"></script>
+        <script>
+            function showDetails(data){
+                debugger
+                var Restaurants=data.getAttribute("data-type");
+                var distance=data.getAttribute("data-distance");
+                var identity=data.getAttribute("data-identifier")
+                alert(`"type":${Restaurants},  "Distance":${distance},  "id":${identity}`)
+            }
+        </script>
+    </head>
+<body>
+    <h2>Restaurants in New York</h2>
+    <div class="hint"><span class="french"></span><span>French</span></div>
+    <div class="hint"><span class="veg"></span><span>Vegetarian</span></div>
+    <div class="hint"><span class="german"></span><span>German</span></div>
+    <ul>
+        <li onclick="showDetails(this)"  data-type="veg" data-distance="2miles" data-identifier="10318">Bloss</li>
+        <li onclick="showDetails(this)" data-type="german" data-distance="3miles" data-identifier="10318">Heidelberg</li>
+        <li onclick="showDetails(this)" data-type="french" data-distance="1mile" data-identifier="10318">Daniel</li>
+        <li onclick="showDetails(this)" data-type="veg" data-distance="4miles" data-identifier="10548">Dirt Candy</li>
+        <li onclick="showDetails(this)" data-type="french" data-distance="3miles" data-identifier="10318">La Grenouille</li>
+        <li onclick="showDetails(this)" data-type="french" data-distance="1mile" data-identifier="10318">Balthazar</li>
+        <li onclick="showDetails(this)" data-type="veg" data-distance="2miles" data-identifier="12315">Angelica Kitchen</li>
+        <li onclick="showDetails(this)" data-type="german" data-distance="1mile" data-identifier="10318">Blaue Gans</li>
+        <li onclick="showDetails(this)" data-type="german" data-distance="2miles" data-identifier="12315">Reichenbach Hall</li>
+    </ul>
+</body>
+
+</html>

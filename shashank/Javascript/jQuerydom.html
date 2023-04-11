@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Jquery Examples</title>
+        <style>
+            .parent{
+                color: green;
+            }
+            .parent .child{
+                color: red;
+            }
+            .parent .child-1{
+                color: chartreuse;
+            }
+            .parent .child-2{
+                color: black;
+            }
+            .container-fluid{
+                margin: 100px;
+                background-color:lavender;
+            }
+        </style>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                //getting Data from html
+                $("#text").click(function(){
+                    alert($(".get").text());
+                })
+                $("#html").click(function(){
+                    alert($(".get").html());
+                })
+                // getting value from html
+                $("#val").click(function(){
+                    alert($("#name").val());
+                })
+                $("#val1").click(function(){
+                    alert($("#class").val());
+                })
+                // set the data from jquery to html
+                $("#text-1").click(function(){
+                    $(".set").text("<p>Here are some<b> basic operations</b> which you can perform on <b><span>DOM elements</span></b></p>")
+                })
+                $("#html-1").click(function(){
+                    $(".set").html("<p>Here are some<b> basic operations</b> which you can perform on <b><span>DOM elements</span></b></p>")
+                })
+                //  set the value from jquery to html
+                $("#set").click(function(){
+                    $("#name-1").val("nani");
+                })
+                $("#set-1").click(function(){
+                    $("#class-1").val("class 12th");
+                })
+                //  Replace the value from jquery to html
+                $("#r1").click(function(){
+                    $(".replace").replaceWith("<h1>This is one heading");
+                })
+                $("#r2").click(function(){
+                    $("h1").replaceWith("<h2>This is another heading");
+                })
+                // Append text to html
+                $("#add").click(function(){
+                    $(".inner").append("<p>jQuery</p>")
+                })
+                // appendTo text to html
+                $("#add1").click(function(){
+                    $("<p>jQuery</p>").appendTo(".inner-1")
+                })
+                $("#add2").click(function(){
+                    $(".after").after("<p>jQuery</p>","<p>easy</p>")
+                })
+                $("#prepend").click(function(){
+                    $(".p-1").prepend("<p>jQuery</p>");
+                })
+                // it removes the div from html
+                $("#remove").click(function(){
+                    $(".rm").remove();
+                })
+                // it removes with parent the div from html
+                $("#remove-1").click(function(){
+                    $("div").remove(".rm-2");
+                })
+                // it empty without accepting any arguments
+                $("#empty").click(function(){
+                    $(".e-3").empty();
+                })
+                // It will hide the All Selectors
+                // $("button").click(function(){
+                //     $("*").hide(); 
+                // })
+                // It will hide the Current element
+                $(".hide").click(function(){
+                    $(this).hide(); 
+                })
+                // it will hide the first ul of list element
+                $("#hide-1").click(function(){
+                    $("ul li:first").hide()
+                })
+                // it will hide the child elements in the lists
+                $("#hide-2").click(function(){
+                    $("ul li:first-child").hide()
+                })
+                // it is used to show which elements we are hide
+                $("#show-2").click(function(){
+                    $("ul li:first-child").show()
+                })
+                // it will hide href 
+                $("#href").click(function(){
+                    $("[href]").hide();
+                })
+                // it will show the href elements what we are hide
+                $("#show").click(function(){
+                    $("[href]").show();
+                })
+                $("tr:even").css("background-color","green")
+                $("tr:odd").css("background-color","aqua")
+                // Toggle 
+                
+                $(".color").click(function(){
+                    $(".mydiv1").fadeToggle();
+                    $(".mydiv2").fadeToggle("slow");
+                    $(".mydiv3").fadeToggle(1000);
+                })
+                $(".clone").click(function(){
+                    $(".mydiv1").clone().appendTo("body")
+                })
+            })
+        </script>
+    </head>
+    <body class="container-fluid">
+        <button class="hide">To Hide all Selector</button>
+        <div class="parent">
+            <h2 class="child-2">Text() and html() :-- get Content</h2>
+            <p class="get">Here are some<b class="child-1"> basic operations</b> which you can perform on <b><span class="child">DOM elements</span></b></p>  
+            <button id="text">Get Text</button>
+            <button id="html">Get HTML</button>
+        </div>
+        <div>
+            <h2>Val() :--get value</h2>
+            <p>Name:<input type="text" value="Bunny" id="name"></p>
+            <p>class:<input type="text" value="class 12th" id="class"></p>
+            <button id="val">Get Name</button>
+            <button id="val1">Get class</button>
+        </div>
+        <div>
+            <h2>Text() and html() :-- Set Content</h2>
+            <p class="set">click the below button</p>
+            <button id="text-1">Set Text</button>
+            <button id="html-1">Set Html</button>
+        </div>
+        <div>
+            <h2>Val() :--set value</h2>
+            <p>Name:<input type="text" value="" id="name-1"></p>
+            <p>class:<input type="text" value="" id="class-1"></p>
+            <button id="set">set Name</button>
+            <button id="set-1">set class</button>
+        </div>
+        <div>
+            <h2>replace with</h2>
+            <p class="replace">While Clicking the below button replace the Content</p>
+            <button id="r1">replace para</button>
+            <button id="r2">replace heading</button>
+        </div>
+        <div>
+            <h2> Jquery Append()</h2>
+            <div class="inner">Hello</div>
+            <div class="inner">Good</div>
+            <button id="add">Append</button>
+        </div>
+        <div>
+            <h2> Jquery AppendTo()</h2>
+            <div class="inner-1">Hello</div>
+            <div class="inner-1">Good</div>
+            <button id="add1">AppendTo</button>
+        </div>
+        <div>
+            <h2> Jquery after()</h2>
+            <div class="after">Hello</div>
+            <div class="after">Good</div>
+            <button id="add2">After</button>
+        </div>
+        <div>
+            <h2> Jquery prepend()</h2>
+            <div class="p-1">Hello</div>
+            <div class="p-1">Good</div>
+            <button id="prepend">prepend</button>
+        </div>
+        <div>
+            <h2> Jquery Remove()</h2>
+            <div class="rm">Hello</div>
+            <div class="rm-1">Good</div>
+            <button id="remove">Remove</button>
+        </div>
+        <div>
+            <h2> Jquery Remove() with Filter</h2>
+            <div class="rm-2">Hello</div>
+            <div class="rm-3">Good</div>
+            <button id="remove-1">Remove</button>
+        </div>
+        <div>
+            <h2> jQuery empty()</h2>
+            <div class="e-2">Hello</div>
+            <div class="e-3">Good</div>
+            <button id="empty">Empty</button>
+        </div>
+        <div>
+            <p>List 1:</p>
+            <ul>
+                <li>Coffee</li>
+                <li>Milk</li>
+                <li>Tea</li>
+                </ul>
+                <p>List 2:</p>
+                <ul>
+                <li>Coffee</li>
+                <li>Milk</li>
+                <li>Tea</li>
+            </ul>
+            <button id="hide-1">hide first Elements</button>
+            <button id="hide-2">hide child Elements</button>
+            <button id="show-2">show child Elements</button>
+        </div>
+        <div>
+            <h2>To hide href</h2>
+            <p><a href="https://www.finbot.in/">Finbot</a></p>
+            <p><a href="https://www.keka.com/">keka</a></p>
+            <button id="href">Click here to hide href</button>
+            <button id="show">Click here to show href</button>
+        </div>
+        <div>
+            <h2>Table Even or Odd</h2>
+            <table border="1">
+                <tr>
+                    <th>Country Name</th>
+                    <th>Capital</th>
+                    <th>CCurrency</th>
+                </tr>
+                <tr>
+                    <td>India</td>
+                    <td>New Delhi</td>
+                    <td>Indian Rupee</td>
+                </tr>
+                <tr>
+                    <td>United States of America</td>
+                    <td>Washington D.C.</td>
+                    <td>Dollar</td>
+                </tr>
+                <tr>
+                    <td>Qatar</td>
+                    <td>Doha</td>
+                    <td>Qatari riyal</td>
+                </tr>
+                <tr>
+                    <td>Russia</td>
+                    <td>Moscow</td>
+                    <td>Ruble</td>
+                </tr>
+                <tr>
+                    <td>Iran</td>
+                    <td>Tehran</td>
+                    <td>Rial</td>
+                </tr>
+            </table>
+            <div style="display: flex; margin-top: 20px;">
+                <h2>Toggle</h2>
+                <button class="color m-2">Click the button</button>
+                <button class="clone m-2">Click to clone</button>
+                <div class="mydiv1" style="width: 100px;height: 100px;background-color:red;"></div><br>
+                <div class="mydiv2" style="width: 100px;height: 100px;background-color: green;"></div><br>
+                <div class="mydiv3" style="width: 100px;height: 100px;background-color: chartreuse;"></div>
+            </div>
+        </div>
+    </body>
+</html>
